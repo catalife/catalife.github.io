@@ -4,27 +4,26 @@ import { Progress } from "@/components/ui/progress";
 import { PlayCircle, Clock, Trophy, TrendingUp } from "lucide-react";
 
 const enrolledCourses = [
-  { id: 1, title: "React Fundamentals", progress: 72, lessons: 24, duration: "12h", category: "Frontend" },
-  { id: 2, title: "Node.js Backend Development", progress: 45, lessons: 18, duration: "9h", category: "Backend" },
-  { id: 3, title: "UI/UX Design Principles", progress: 90, lessons: 15, duration: "7h", category: "Design" },
+  { id: 1, title: "Advance Diploma in Clinical Research", progress: 72, lessons: 32, duration: "6 months", category: "Clinical Research" },
+  { id: 5, title: "Advance Diploma in Pharmacovigilance", progress: 45, lessons: 26, duration: "6 months", category: "Pharmacovigilance" },
+  { id: 3, title: "Advance Diploma in Medical Writing", progress: 90, lessons: 24, duration: "6 months", category: "Medical Writing" },
 ];
 
 const stats = [
   { label: "Courses Enrolled", value: "3", icon: PlayCircle },
-  { label: "Hours Learned", value: "28", icon: Clock },
-  { label: "Quizzes Passed", value: "12", icon: Trophy },
-  { label: "Current Streak", value: "5 days", icon: TrendingUp },
+  { label: "Hours Learned", value: "128", icon: Clock },
+  { label: "Quizzes Passed", value: "18", icon: Trophy },
+  { label: "Current Streak", value: "12 days", icon: TrendingUp },
 ];
 
 const Dashboard = () => (
   <div className="min-h-screen py-8">
     <div className="container">
       <div className="mb-8">
-        <h1 className="font-display text-3xl font-bold">Welcome back, Jane 👋</h1>
-        <p className="mt-1 text-muted-foreground">Continue where you left off</p>
+        <h1 className="font-display text-3xl font-bold">Welcome back 👋</h1>
+        <p className="mt-1 text-muted-foreground">Continue your clinical research training</p>
       </div>
 
-      {/* Stats */}
       <div className="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="rounded-xl border bg-card p-5 shadow-card">
@@ -37,7 +36,6 @@ const Dashboard = () => (
         ))}
       </div>
 
-      {/* Enrolled Courses */}
       <div className="mb-4 flex items-center justify-between">
         <h2 className="font-display text-xl font-bold">My Courses</h2>
         <Link to="/courses">
