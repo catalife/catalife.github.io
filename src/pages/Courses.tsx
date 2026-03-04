@@ -17,7 +17,7 @@ const Courses = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-secondary/5 via-background to-primary/5 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-secondary/20 via-primary/10 to-accent/15 py-8">
       <div className="container">
         <div className="mb-8">
           <h1 className="font-display text-3xl font-bold">Our Courses</h1>

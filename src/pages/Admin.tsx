@@ -35,7 +35,7 @@ const Admin = () => {
   if (!isAdmin) return <Navigate to="/" replace />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/15 py-8">
       <div className="container">
         <div className="mb-8">
           <h1 className="font-display text-3xl font-bold">Admin Dashboard</h1>

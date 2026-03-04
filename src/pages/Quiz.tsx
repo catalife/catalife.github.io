@@ -95,7 +95,7 @@ const Quiz = () => {
   if (submitted && isFinished) {
     const passed = score >= Math.ceil(questions.length * 0.7);
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/5 via-background to-secondary/5 py-8">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/15 via-secondary/10 to-accent/20 py-8">
         <div className="w-full max-w-md text-center">
           <div className={`mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full ${passed ? "bg-success/10" : "bg-destructive/10"}`}>
             {passed ? <CheckCircle className="h-10 w-10 text-success" /> : <XCircle className="h-10 w-10 text-destructive" />}
@@ -116,7 +116,7 @@ const Quiz = () => {
   const q = questions[current];
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/5 via-background to-secondary/5 py-8">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-primary/15 via-secondary/10 to-accent/20 py-8">
       <div className="w-full max-w-lg">
         <div className="mb-6">
           <div className="mb-2 flex items-center justify-between text-sm text-muted-foreground">

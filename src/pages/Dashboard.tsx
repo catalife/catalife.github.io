@@ -23,7 +23,7 @@ const Dashboard = () => {
   if (!isLoggedIn) return <Navigate to="/login" replace />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/5 via-background to-secondary/5 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-primary/15 via-secondary/10 to-accent/20 py-8">
       <div className="container">
         <div className="mb-8">
           <h1 className="font-display text-3xl font-bold">Welcome back, {user?.name} 👋</h1>
