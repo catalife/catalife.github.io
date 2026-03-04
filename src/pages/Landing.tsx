@@ -1,14 +1,30 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { PlayCircle, Users, Trophy, MessageSquare, ArrowRight } from "lucide-react";
+import { GraduationCap, Users, Award, BookOpen, ArrowRight, FlaskConical, Stethoscope, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-illustration.jpg";
 
 const features = [
-  { icon: PlayCircle, title: "Video Courses", desc: "HD knowledge videos organized into structured learning paths" },
-  { icon: Trophy, title: "Interactive Quizzes", desc: "Test your understanding with quizzes after every module" },
-  { icon: Users, title: "Student Accounts", desc: "Personal dashboards to track progress and achievements" },
-  { icon: MessageSquare, title: "Community Forum", desc: "Ask questions, share knowledge, and collaborate" },
+  { icon: GraduationCap, title: "Expert-Led Training", desc: "Learn from seasoned professors and industry experts in clinical research & pharmacy" },
+  { icon: FlaskConical, title: "Hands-On Practice", desc: "Practical experience with ICT tools, mind maps, and flipped classroom methodology" },
+  { icon: Award, title: "Certified Programs", desc: "Advance Diplomas and PG Diplomas recognized by the pharmaceutical industry" },
+  { icon: Users, title: "Placement Assistance", desc: "Career guidance and job placement support for every graduate" },
+];
+
+const distinctiveness = [
+  "Effective Online Pharmacy Courses",
+  "Global Standard Curriculum",
+  "ICT Tools & Flipped Classroom",
+  "Industry Expert Sessions",
+  "360 Degree Evaluation",
+  "Mnemonic Mind Maps",
+];
+
+const testimonials = [
+  "Be the pharmacist who not only fills prescriptions but also fills lives with well-being.",
+  "The art of pharmacy is not just dispensing pills but dispensing care and hope.",
+  "Every drug counts, every patient matters—your role is pivotal.",
+  "Excellence in pharmacy isn't about being perfect—it's about striving for patient-centered care every day.",
 ];
 
 const Landing = () => {
@@ -23,22 +39,22 @@ const Landing = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="mb-4 inline-block rounded-full bg-secondary/20 px-4 py-1.5 text-sm font-medium text-secondary">
-              Learn at your pace
+              Best Clinical Research Training Institute in Pune
             </span>
-            <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-primary-foreground md:text-6xl">
-              Master new skills with expert-led courses
+            <h1 className="mb-6 font-display text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
+              Advance Your Career with Top-Rated Pharmacy Courses
             </h1>
             <p className="mb-8 max-w-lg text-lg text-primary-foreground/70">
-              Watch curated video lessons, test your knowledge with quizzes, and connect with a community of learners.
+              Achieve Pharmacy Excellence with CataLife – Your Path to Success! From freshers to experienced professionals, we prepare you for a dream career in Clinical Research.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/signup">
                 <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold gap-2">
-                  Start Learning <ArrowRight className="h-4 w-4" />
+                  Enroll Today <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/courses">
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+                <Button size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground bg-primary-foreground/10 hover:bg-primary-foreground/20">
                   Browse Courses
                 </Button>
               </Link>
@@ -53,20 +69,32 @@ const Landing = () => {
           >
             <img
               src={heroImage}
-              alt="Online learning illustration"
+              alt="CataLife Clinical Research Training"
               className="rounded-2xl shadow-hero"
             />
           </motion.div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* About Us */}
       <section className="py-20">
         <div className="container">
           <div className="mb-16 text-center">
-            <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">Everything you need to learn</h2>
+            <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">About CataLife Training Organization</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              We are the best Clinical Research Training Institute in Pune. We work with industry experts to enhance, train, and prepare students in pursuing their dream career. We don't just train but also help students gain clarity and build confidence in making a significant career move.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="border-t bg-muted/30 py-20">
+        <div className="container">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">Why Choose CataLife?</h2>
             <p className="mx-auto max-w-xl text-muted-foreground">
-              A complete learning platform built for students and educators
+              Comprehensive pharmacy education led by a seasoned professor with industry experience
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -90,16 +118,65 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* Distinctiveness */}
+      <section className="py-20">
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">Our Distinctiveness</h2>
+          </div>
+          <div className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
+            {distinctiveness.map((item, i) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex items-center gap-3 rounded-lg border bg-card p-4 shadow-card"
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                  <Award className="h-4 w-4 text-primary" />
+                </div>
+                <span className="font-medium">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="border-t bg-muted/30 py-20">
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">Student Testimonials</h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {testimonials.map((quote, i) => (
+              <motion.blockquote
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="rounded-xl border bg-card p-6 shadow-card italic text-muted-foreground"
+              >
+                "{quote}"
+              </motion.blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="border-t bg-muted/50 py-20">
+      <section className="border-t py-20">
         <div className="container text-center">
-          <h2 className="mb-4 font-display text-3xl font-bold">Ready to start learning?</h2>
+          <h2 className="mb-4 font-display text-3xl font-bold">Ready to Start Your Pharmacy Career?</h2>
           <p className="mx-auto mb-8 max-w-md text-muted-foreground">
-            Join thousands of students already advancing their skills.
+            Join CataLife Training Organization and transform into an industry-ready professional.
           </p>
           <Link to="/signup">
             <Button size="lg" className="gap-2 font-semibold">
-              Create Free Account <ArrowRight className="h-4 w-4" />
+              Enroll Now <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
         </div>
@@ -108,11 +185,12 @@ const Landing = () => {
       {/* Footer */}
       <footer className="border-t py-8">
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-sm text-muted-foreground">© 2026 LearnHub. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 CataLife Training Organization. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-muted-foreground">
+            <a href="https://www.instagram.com/_catalife_organization_/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">Instagram</a>
             <a href="#" className="hover:text-foreground">Privacy</a>
             <a href="#" className="hover:text-foreground">Terms</a>
-            <a href="#" className="hover:text-foreground">Support</a>
+            <a href="#" className="hover:text-foreground">Contact</a>
           </div>
         </div>
       </footer>
