@@ -25,7 +25,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-primary/5 via-background to-secondary/10 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/15 p-4">
       <div className="w-full max-w-md space-y-8">
         <div className="text-center">
           <Link to="/" className="mx-auto mb-4 flex items-center justify-center gap-2">

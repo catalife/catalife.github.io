@@ -36,7 +36,7 @@ const Forum = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/5 via-background to-secondary/5 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-primary/15 via-accent/10 to-secondary/20 py-8">
       <div className="container max-w-3xl">
         <div className="mb-8 flex items-center justify-between">
           <div>

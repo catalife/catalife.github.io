@@ -116,7 +116,7 @@ const CourseDetail = () => {
   if (!isLoggedIn) return <Navigate to="/login" replace />;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/5 via-background to-secondary/5 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-primary/15 via-secondary/10 to-accent/20 py-8">
       <div className="container">
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
