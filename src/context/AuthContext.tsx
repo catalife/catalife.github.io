@@ -25,7 +25,7 @@ export const useAuth = () => {
 
 // Admin credentials
 const ADMIN_EMAIL = "admin@catalife.in";
-const ADMIN_PASSWORD = "admin123";
+const ADMIN_PASSWORD = "admin123!";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(() => {
@@ -46,19 +46,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser({ name: "Admin", email, role: "admin" });
       return true;
     }
-    // Any other email/password combo logs in as student
-    if (email && password) {
-      setUser({ name: email.split("@")[0], email, role: "student" });
-      return true;
-    }
     return false;
   };
 
   const signup = (name: string, email: string, password: string): boolean => {
-    if (name && email && password) {
-      setUser({ name, email, role: "student" });
-      return true;
-    }
+    // Temporarily disable open signups; only admin login is allowed.
     return false;
   };
 

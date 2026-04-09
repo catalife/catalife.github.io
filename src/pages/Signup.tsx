@@ -21,7 +21,7 @@ const Signup = () => {
       toast({ title: "Account created!", description: "Welcome to CataLife." });
       navigate("/dashboard");
     } else {
-      toast({ title: "Signup failed", description: "Please fill all fields.", variant: "destructive" });
+      toast({ title: "Signup disabled", description: "Only admin login is allowed right now.", variant: "destructive" });
     }
   };
 
