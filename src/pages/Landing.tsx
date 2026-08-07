@@ -1,9 +1,36 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Users, Award, FlaskConical, ArrowRight } from "lucide-react";
+import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-illustration.jpg";
 import { useAuth } from "@/context/AuthContext";
+import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
+import cdmInternshipThumb from "@/assets/course-thumbnails/cdm-internship.png";
+import crDocumentsInternshipThumb from "@/assets/course-thumbnails/cr-documents-internship.png";
+
+const featuredPrograms = [
+  {
+    title: "Master Python – Basic & Advance",
+    badge: "Early Bird till 5 July 2026",
+    fee: "From ₹1,699",
+    image: pythonProgrammingThumb,
+    href: "/courses",
+  },
+  {
+    title: "Basic Internship – Clinical Data Management",
+    badge: "Starting 3 August 2026",
+    fee: "₹999 only",
+    image: cdmInternshipThumb,
+    href: "/courses",
+  },
+  {
+    title: "Integrated Internship – CR Documents",
+    badge: "Starting 3 August 2026",
+    fee: "₹1,999 only",
+    image: crDocumentsInternshipThumb,
+    href: "/courses",
+  },
+];
 
 const features = [
   { icon: GraduationCap, title: "Expert-Led Training", desc: "Learn from seasoned professors and industry experts in clinical research & pharmacy" },
@@ -103,8 +130,59 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Distinctiveness */}
+      {/* Featured Programs */}
       <section className="bg-gradient-to-b from-primary/5 to-background py-20">
+        <div className="container">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">Featured Programs</h2>
+            <p className="mx-auto max-w-xl text-muted-foreground">
+              Upcoming batches and early-bird offers in programming and clinical research internships
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {featuredPrograms.map((p, i) => (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group overflow-hidden rounded-xl border bg-card shadow-card transition-shadow hover:shadow-card-hover"
+              >
+                <Link to={p.href} className="block">
+                  <img
+                    src={p.image}
+                    alt={`${p.title} flyer`}
+                    className="w-full bg-muted object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                </Link>
+                <div className="space-y-3 p-5">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/20 px-3 py-1 text-xs font-semibold text-secondary-foreground">
+                    <Calendar className="h-3.5 w-3.5" /> {p.badge}
+                  </span>
+                  <h3 className="font-display text-lg font-semibold leading-snug">{p.title}</h3>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-display text-lg font-bold text-primary">{p.fee}</span>
+                    <Link to={p.href}>
+                      <Button size="sm" variant="outline">View Details</Button>
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link to="/courses">
+              <Button size="lg" className="gap-2 font-semibold">
+                Browse All Courses <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Distinctiveness */}
+      <section className="bg-gradient-to-b from-background to-secondary/5 py-20">
         <div className="container">
           <div className="mb-12 text-center">
             <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">Our Distinctiveness</h2>
@@ -124,7 +202,7 @@ const Landing = () => {
       </section>
 
       {/* Student Testimonials */}
-      <section className="bg-gradient-to-b from-background to-secondary/5 py-20">
+      <section className="bg-gradient-to-b from-secondary/5 to-background py-20">
         <div className="container">
           <div className="mb-12 text-center">
             <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl">Student Testimonials</h2>
