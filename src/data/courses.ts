@@ -1,5 +1,4 @@
 import type { LucideIcon } from "lucide-react";
-import { BarChart3, Code2, FileCode2, Scale } from "lucide-react";
 import clinicalResearchAdvanceThumb from "@/assets/course-thumbnails/clinical-research-advance.jpg";
 import clinicalResearchPgThumb from "@/assets/course-thumbnails/clinical-research-pg.jpg";
 import medicalWritingThumb from "@/assets/course-thumbnails/medical-writing.jpg";
@@ -10,6 +9,11 @@ import softSkillsThumb from "@/assets/course-thumbnails/soft-skills.jpg";
 import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
 import cdmInternshipThumb from "@/assets/course-thumbnails/cdm-internship.png";
 import crDocumentsInternshipThumb from "@/assets/course-thumbnails/cr-documents-internship.png";
+// Photos from Unsplash (free to use under the Unsplash License)
+import sasProgrammingThumb from "@/assets/course-thumbnails/sas-programming.jpg";
+import rProgrammingThumb from "@/assets/course-thumbnails/r-programming.jpg";
+import medicalCodingThumb from "@/assets/course-thumbnails/medical-coding.jpg";
+import regulatoryAffairsThumb from "@/assets/course-thumbnails/regulatory-affairs.jpg";
 
 export type Course = {
   title: string;
@@ -29,10 +33,10 @@ export const courses: Course[] = [
   { title: "Advance Diploma in Pharmacovigilance", desc: "Drug safety, adverse event reporting and risk management.", duration: "3 months", category: "Pharmacovigilance", thumbnail: pharmacovigilanceThumb },
   { title: "Advance Diploma in Clinical Data Management", desc: "Collect, validate and manage clinical trial data.", duration: "3 months", category: "Data Management", thumbnail: dataManagementThumb },
   { title: "Advance Diploma in Medical Writing", desc: "Regulatory writing, study reports and scientific documents.", duration: "3 months", category: "Medical Writing", thumbnail: medicalWritingThumb },
-  { title: "Regulatory Affairs", desc: "Drug approvals, submissions and regulatory guidelines.", duration: "1 month", category: "Regulatory Affairs", icon: Scale },
-  { title: "Medical Coding", desc: "Code diagnoses and procedures using standard coding systems.", duration: "3 months", category: "Medical Coding", icon: FileCode2 },
-  { title: "SAS Programming", desc: "Clinical SAS for trial data analysis and reporting.", duration: "4 months", category: "Programming", icon: BarChart3 },
-  { title: "R Programming", desc: "Data analysis and statistics with R.", duration: "4 months", category: "Programming", icon: Code2 },
+  { title: "Regulatory Affairs", desc: "Drug approvals, submissions and regulatory guidelines.", duration: "1 month", category: "Regulatory Affairs", thumbnail: regulatoryAffairsThumb },
+  { title: "Medical Coding", desc: "Code diagnoses and procedures using standard coding systems.", duration: "3 months", category: "Medical Coding", thumbnail: medicalCodingThumb },
+  { title: "SAS Programming", desc: "Clinical SAS for trial data analysis and reporting.", duration: "4 months", category: "Programming", thumbnail: sasProgrammingThumb },
+  { title: "R Programming", desc: "Data analysis and statistics with R.", duration: "4 months", category: "Programming", thumbnail: rProgrammingThumb },
   { title: "Python Basic", desc: "From variables to mini projects — start coding.", duration: "1 month", category: "Programming", thumbnail: pythonProgrammingThumb },
   { title: "Python Advance", desc: "OOP, exceptions, SQLite and real-world projects.", duration: "1 month", category: "Programming", thumbnail: pythonProgrammingThumb },
   { title: "Basic Internship in Clinical Data Management", desc: "Hands-on CRF/eCRF, EDC, data validation and GCP.", duration: "4 weeks", category: "Internships", thumbnail: cdmInternshipThumb, fee: "₹999" },
