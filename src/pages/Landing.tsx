@@ -119,10 +119,10 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Upcoming Programs */}
+      {/* Latest Batches */}
       <section className="bg-primary/5 py-16 md:py-20">
         <div className="container">
-          <SectionTitle>Upcoming Programs</SectionTitle>
+          <SectionTitle>Latest Batches</SectionTitle>
           {/* Swipe sideways on phones, grid on larger screens */}
           <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
             {featuredPrograms.map((p) => (
