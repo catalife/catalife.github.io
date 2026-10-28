@@ -34,6 +34,12 @@ const featuredPrograms = [
   },
 ];
 
+const heroFacts = [
+  { value: "TCS", label: "where our alumni work" },
+  { value: "11", label: "courses & internships" },
+  { value: "4 weeks", label: "online internships" },
+];
+
 const features = [
   { icon: GraduationCap, title: "Expert-led", desc: "Learn from industry professionals." },
   { icon: FlaskConical, title: "Hands-on", desc: "Practical, case-based training." },
@@ -54,7 +60,7 @@ const Landing = () => {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="gradient-hero relative overflow-hidden py-20 md:py-28">
+      <section className="gradient-hero relative overflow-hidden py-14 md:py-16">
         <div className="container relative z-10 grid items-center gap-12 md:grid-cols-2">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="mb-4 inline-block rounded-full bg-secondary/20 px-4 py-1.5 text-sm font-medium text-secondary">
@@ -78,10 +84,18 @@ const Landing = () => {
                 </Button>
               </Link>
             </div>
+            <div className="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-primary-foreground/15 pt-6">
+              {heroFacts.map((f) => (
+                <div key={f.label}>
+                  <p className="font-display text-2xl font-bold text-secondary">{f.value}</p>
+                  <p className="mt-1 text-xs text-primary-foreground/60">{f.label}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hidden md:block">
-            <img src={heroImage} alt="Catalife Clinical Research Training" className="rounded-2xl shadow-hero" />
+            <img src={heroImage} alt="Catalife Clinical Research Training" className="aspect-[4/3] max-h-[420px] w-full rounded-2xl object-cover shadow-hero" />
           </motion.div>
         </div>
       </section>
