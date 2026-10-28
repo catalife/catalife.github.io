@@ -67,7 +67,7 @@ const Landing = () => {
             <span className="mb-4 inline-block rounded-full bg-secondary/20 px-4 py-1.5 text-sm font-medium text-secondary">
               Clinical Research Training · Pune
             </span>
-            <h1 className="mb-5 font-display text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
+            <h1 className="mb-5 font-hero text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
               Launch your career in Clinical Research
             </h1>
             <p className="mb-8 max-w-md text-lg text-primary-foreground/70">
@@ -88,7 +88,7 @@ const Landing = () => {
             <div className="mt-10 grid max-w-lg grid-cols-[1.25fr_1fr_1fr] gap-4 border-t border-primary-foreground/15 pt-6 sm:grid-cols-3 sm:gap-6">
               {heroFacts.map((f) => (
                 <div key={f.label}>
-                  <p className="whitespace-nowrap font-display text-lg font-bold text-secondary sm:text-2xl">
+                  <p className="whitespace-nowrap font-hero text-lg font-bold text-secondary sm:text-2xl">
                     {Array.isArray(f.value) ? <RotatingText items={f.value} /> : f.value}
                   </p>
                   <p className="mt-1 text-xs text-primary-foreground/60">{f.label}</p>

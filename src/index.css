@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -50,7 +50,9 @@
     --warning: 37 90% 55%;
     --warning-foreground: 222 60% 12%;
 
-    --font-display: 'Space Grotesk', sans-serif;
+    /* Headings and logo use Poppins; the homepage hero keeps Space Grotesk (--font-hero). */
+    --font-display: 'Poppins', sans-serif;
+    --font-hero: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 
     --gradient-hero: linear-gradient(135deg, hsl(222 60% 22%), hsl(222 60% 16%), hsl(240 50% 18%));
@@ -103,12 +105,19 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  .font-hero {
+    font-family: var(--font-hero);
+    letter-spacing: normal;
   }
 
   .font-body {
