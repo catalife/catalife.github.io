@@ -15,7 +15,6 @@ const featuredPrograms = [
   {
     title: "Master Python – Basic & Advance",
     badge: "Early Bird till 5 July 2026",
-    fee: "From ₹1,699",
     image: pythonProgrammingThumb,
     course: "Master Python – Basic & Advance",
   },
@@ -137,7 +136,7 @@ const Landing = () => {
                   </span>
                   <h3 className="font-display text-lg font-semibold leading-snug">{p.title}</h3>
                   <div className="flex items-center justify-between gap-3">
-                    <span className="font-display text-lg font-bold text-primary">{p.fee}</span>
+                    <span className="font-display text-lg font-bold text-primary">{"fee" in p ? p.fee : ""}</span>
                     <Link to={enquiryLink(p.course)}>
                       <Button size="sm">Enquire</Button>
                     </Link>
