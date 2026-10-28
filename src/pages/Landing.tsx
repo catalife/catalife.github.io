@@ -100,10 +100,10 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Why Catalife */}
+      {/* Our Commitment */}
       <section className="py-16 md:py-20">
         <div className="container">
-          <SectionTitle>Why Catalife</SectionTitle>
+          <SectionTitle>Our Commitment</SectionTitle>
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
             {features.map((f, i) => (
               <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
