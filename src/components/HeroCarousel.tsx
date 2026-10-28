@@ -41,7 +41,7 @@ const HeroCarousel = () => {
 
   return (
     <div
-      className="relative aspect-[4/3] max-h-[420px] w-full overflow-hidden rounded-2xl shadow-hero"
+      className="relative aspect-[16/10] max-h-[420px] w-full overflow-hidden rounded-2xl shadow-hero md:aspect-[4/3]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -57,11 +57,11 @@ const HeroCarousel = () => {
           <Link to={`/contact?course=${encodeURIComponent(s.title)}`} className="block h-full w-full">
             <img src={s.thumbnail} alt={s.title} className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-5">
+            <div className="absolute inset-x-0 bottom-0 p-4 md:p-5">
               <span className="mb-2 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
                 {s.category}
               </span>
-              <p className="font-display text-xl font-bold text-white">{s.title}</p>
+              <p className="font-display text-lg font-bold leading-snug text-white md:text-xl">{s.title}</p>
               <p className="mt-1 flex items-center gap-1 text-sm text-white/80">
                 <Clock className="h-4 w-4" /> {s.duration}
               </p>
