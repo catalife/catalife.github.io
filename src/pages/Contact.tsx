@@ -18,7 +18,7 @@ const contactSchema = z.object({
 const contactInfo = [
   { icon: MapPin, label: "Address", value: "CataLife Training Organization, Pune, Maharashtra, India" },
   { icon: Phone, label: "Phone", value: "+91 8483844076", href: "tel:+918483844076" },
-  { icon: Mail, label: "Email", value: "info@catalife.in", href: "mailto:info@catalife.in" },
+  { icon: Mail, label: "Email", value: "catalifetrainingorganisation@gmail.com", href: "mailto:catalifetrainingorganisation@gmail.com" },
   { icon: Clock, label: "Hours", value: "Mon – Sat, 9:00 AM – 6:00 PM" },
 ];
 
@@ -72,10 +72,15 @@ const Contact = () => {
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                   <item.icon className="h-5 w-5 text-primary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-medium text-muted-foreground">{item.label}</p>
                   {item.href ? (
-                    <a href={item.href} className="text-sm font-medium hover:text-primary transition-colors">{item.value}</a>
+                    <a href={item.href} className="text-sm font-medium [overflow-wrap:anywhere] hover:text-primary transition-colors">
+                      {/* Let long email addresses wrap before the "@" on narrow screens */}
+                      {item.value.includes("@") ? (
+                        <>{item.value.split("@")[0]}<wbr />@{item.value.split("@")[1]}</>
+                      ) : item.value}
+                    </a>
                   ) : (
                     <p className="text-sm font-medium">{item.value}</p>
                   )}
