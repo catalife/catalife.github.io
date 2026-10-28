@@ -57,7 +57,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary/10 via-background to-background py-12">
+    <div className="min-h-screen bg-background py-12">
       <div className="container max-w-5xl">
         <div className="mb-10 text-center">
           <h1 className="font-display text-4xl font-bold">Get in Touch</h1>
