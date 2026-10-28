@@ -3,39 +3,7 @@ import { Link } from "react-router-dom";
 import { Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import clinicalResearchAdvanceThumb from "@/assets/course-thumbnails/clinical-research-advance.jpg";
-import clinicalResearchPgThumb from "@/assets/course-thumbnails/clinical-research-pg.jpg";
-import medicalWritingThumb from "@/assets/course-thumbnails/medical-writing.jpg";
-import dataManagementThumb from "@/assets/course-thumbnails/data-management.jpg";
-import pharmacovigilanceThumb from "@/assets/course-thumbnails/pharmacovigilance.jpg";
-import publicSpeakingThumb from "@/assets/course-thumbnails/public-speaking.jpg";
-import softSkillsThumb from "@/assets/course-thumbnails/soft-skills.jpg";
-import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
-import cdmInternshipThumb from "@/assets/course-thumbnails/cdm-internship.png";
-import crDocumentsInternshipThumb from "@/assets/course-thumbnails/cr-documents-internship.png";
-
-type Course = {
-  title: string;
-  desc: string;
-  duration: string;
-  category: string;
-  thumbnail: string;
-  fee?: string;
-};
-
-const courses: Course[] = [
-  { title: "Advance Diploma in Clinical Research", desc: "Trial processes, protocols and regulations.", duration: "6 months", category: "Clinical Research", thumbnail: clinicalResearchAdvanceThumb },
-  { title: "PG Diploma in Clinical Research", desc: "Advanced trial management and biostatistics.", duration: "12 months", category: "Clinical Research", thumbnail: clinicalResearchPgThumb },
-  { title: "Advance Diploma in Pharmacovigilance", desc: "Drug safety, adverse event reporting and risk management.", duration: "6 months", category: "Pharmacovigilance", thumbnail: pharmacovigilanceThumb },
-  { title: "Advance Diploma in Clinical Data Management", desc: "Collect, validate and manage clinical trial data.", duration: "6 months", category: "Data Management", thumbnail: dataManagementThumb },
-  { title: "Advance Diploma in Medical Writing", desc: "Regulatory writing, study reports and scientific documents.", duration: "6 months", category: "Medical Writing", thumbnail: medicalWritingThumb },
-  { title: "Basic Internship in Clinical Data Management", desc: "Hands-on CRF/eCRF, EDC, data validation and GCP.", duration: "4 weeks", category: "Internships", thumbnail: cdmInternshipThumb, fee: "₹999" },
-  { title: "Integrated Internship – Clinical Research Documents", desc: "Work on key clinical research documents with industry mentors.", duration: "4 weeks", category: "Internships", thumbnail: crDocumentsInternshipThumb, fee: "₹1,999" },
-  { title: "Python Basic", desc: "From variables to mini projects — start coding.", duration: "Flexible", category: "Programming", thumbnail: pythonProgrammingThumb, fee: "₹1,699" },
-  { title: "Python Advance", desc: "OOP, exceptions, SQLite and real-world projects.", duration: "Flexible", category: "Programming", thumbnail: pythonProgrammingThumb, fee: "₹2,499" },
-  { title: "Public Speaking Certificate Course", desc: "Present and speak with confidence.", duration: "3 months", category: "Soft Skills", thumbnail: publicSpeakingThumb },
-  { title: "Certificate Course of Soft Skills", desc: "Communication, teamwork and leadership.", duration: "3 months", category: "Soft Skills", thumbnail: softSkillsThumb },
-];
+import { courses } from "@/data/courses";
 
 const categories = ["All", ...Array.from(new Set(courses.map((c) => c.category)))];
 
@@ -68,8 +36,16 @@ const Courses = () => {
           {shown.map((c) => (
             <div key={c.title} className="flex flex-col overflow-hidden rounded-xl border bg-card shadow-card transition-shadow hover:shadow-card-hover">
               <div className="relative h-40 overflow-hidden bg-muted">
-                <img src={c.thumbnail} alt="" className="h-full w-full object-cover object-top" />
-                <div className="absolute inset-0 bg-black/30" />
+                {c.thumbnail ? (
+                  <>
+                    <img src={c.thumbnail} alt="" className="h-full w-full object-cover object-top" />
+                    <div className="absolute inset-0 bg-black/30" />
+                  </>
+                ) : (
+                  <div className="gradient-hero flex h-full w-full items-center justify-center">
+                    {c.icon && <c.icon className="h-14 w-14 text-secondary" strokeWidth={1.5} />}
+                  </div>
+                )}
                 <span className="absolute bottom-3 left-3 rounded-full bg-secondary/90 px-3 py-1 text-xs font-semibold text-secondary-foreground">
                   {c.category}
                 </span>

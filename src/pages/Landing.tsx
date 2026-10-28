@@ -6,6 +6,7 @@ import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Calendar, Quote 
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-illustration.jpg";
 import { testimonials } from "@/data/testimonials";
+import { courses } from "@/data/courses";
 import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
 import cdmInternshipThumb from "@/assets/course-thumbnails/cdm-internship.png";
 import crDocumentsInternshipThumb from "@/assets/course-thumbnails/cr-documents-internship.png";
@@ -36,7 +37,7 @@ const featuredPrograms = [
 
 const heroFacts = [
   { value: "TCS", label: "where our alumni work" },
-  { value: "11", label: "courses & internships" },
+  { value: String(courses.length), label: "courses & internships" },
   { value: "4 weeks", label: "online internships" },
 ];
 
