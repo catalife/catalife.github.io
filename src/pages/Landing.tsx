@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-illustration.jpg";
-import { useAuth } from "@/context/AuthContext";
 import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
 import cdmInternshipThumb from "@/assets/course-thumbnails/cdm-internship.png";
 import crDocumentsInternshipThumb from "@/assets/course-thumbnails/cr-documents-internship.png";
@@ -57,8 +56,6 @@ const testimonials = [
 ];
 
 const Landing = () => {
-  const { isLoggedIn } = useAuth();
-
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -75,9 +72,9 @@ const Landing = () => {
               Achieve Pharmacy Excellence with CataLife – Your Path to Success! From freshers to experienced professionals, we prepare you for a dream career in Clinical Research.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to={isLoggedIn ? "/dashboard" : "/signup"}>
+              <Link to="/contact">
                 <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold gap-2">
-                  {isLoggedIn ? "Go to Dashboard" : "Enroll Today"} <ArrowRight className="h-4 w-4" />
+                  Enquire Now <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/courses">
@@ -229,9 +226,9 @@ const Landing = () => {
           <p className="mx-auto mb-8 max-w-md text-muted-foreground">
             Join CataLife Training Organization and transform into an industry-ready professional.
           </p>
-          <Link to={isLoggedIn ? "/dashboard" : "/signup"}>
+          <Link to="/contact">
             <Button size="lg" className="gap-2 font-semibold">
-              {isLoggedIn ? "Go to Dashboard" : "Enroll Now"} <ArrowRight className="h-4 w-4" />
+              Enquire Now <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
         </div>

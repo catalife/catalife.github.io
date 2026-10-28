@@ -20,7 +20,7 @@ const Login = () => {
       toast({ title: "Welcome back!", description: "You have signed in successfully." });
       navigate("/dashboard");
     } else {
-      toast({ title: "Login failed", description: "Please check your credentials.", variant: "destructive" });
+      toast({ title: "Login unavailable", description: "Student login is coming soon. Please contact us to enroll.", variant: "destructive" });
     }
   };
 

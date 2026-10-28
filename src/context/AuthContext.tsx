@@ -23,36 +23,26 @@ export const useAuth = () => {
   return ctx;
 };
 
-// Admin credentials
-const ADMIN_EMAIL = "admin@catalife.in";
-const ADMIN_PASSWORD = "admin123!";
+// Login is disabled. This is a static site (GitHub Pages) with no backend, so any
+// credentials checked here would ship in the public JavaScript bundle. Re-enable
+// login only once a real server-side auth provider is in place.
+const STORAGE_KEY = "catalife_user";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(() => {
-    const stored = localStorage.getItem("catalife_user");
-    return stored ? JSON.parse(stored) : null;
-  });
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    if (user) {
-      localStorage.setItem("catalife_user", JSON.stringify(user));
-    } else {
-      localStorage.removeItem("catalife_user");
+    // Clear any session saved by the old client-side login.
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Storage may be unavailable (private mode); nothing to clear.
     }
-  }, [user]);
+  }, []);
 
-  const login = (email: string, password: string): boolean => {
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      setUser({ name: "Admin", email, role: "admin" });
-      return true;
-    }
-    return false;
-  };
+  const login = (_email: string, _password: string): boolean => false;
 
-  const signup = (name: string, email: string, password: string): boolean => {
-    // Temporarily disable open signups; only admin login is allowed.
-    return false;
-  };
+  const signup = (_name: string, _email: string, _password: string): boolean => false;
 
   const logout = () => setUser(null);
 

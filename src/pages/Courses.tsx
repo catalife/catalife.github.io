@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/context/AuthContext";
 import clinicalResearchAdvanceThumb from "@/assets/course-thumbnails/clinical-research-advance.jpg";
 import clinicalResearchPgThumb from "@/assets/course-thumbnails/clinical-research-pg.jpg";
 import medicalWritingThumb from "@/assets/course-thumbnails/medical-writing.jpg";
@@ -54,9 +53,9 @@ const courses = [
   { id: 7, title: "Certificate Course of Soft Skills", desc: "Improve communication, teamwork, and leadership skills for the clinical research field", lessons: 14, duration: "3 months", category: "Soft Skills", thumbnail: softSkillsThumb },
 ];
 
-const Courses = () => {
-  const { isLoggedIn } = useAuth();
+const enquiryLink = (course: string) => `/contact?course=${encodeURIComponent(course)}`;
 
+const Courses = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-secondary/20 via-primary/10 to-accent/15 py-8">
       <div className="container">
@@ -78,7 +77,7 @@ const Courses = () => {
           <div className="grid gap-6 md:grid-cols-3">
             {featuredPrograms.map((p) => (
               <div key={p.id} className="group overflow-hidden rounded-xl border bg-card shadow-card transition-shadow hover:shadow-card-hover">
-                <Link to={isLoggedIn ? `/course/${p.id}` : "/contact"} className="block">
+                <Link to={enquiryLink(p.title)} className="block">
                   <img
                     src={p.image}
                     alt={`${p.title} flyer`}
@@ -93,8 +92,8 @@ const Courses = () => {
                   <p className="text-sm text-muted-foreground">{p.start}</p>
                   <div className="flex items-center justify-between gap-3 pt-1">
                     <span className="font-display text-lg font-bold text-primary">{p.fee}</span>
-                    <Link to={isLoggedIn ? `/course/${p.id}` : "/contact"}>
-                      <Button size="sm">{isLoggedIn ? "View Details" : "Enroll Now"}</Button>
+                    <Link to={enquiryLink(p.title)}>
+                      <Button size="sm">Enquire Now</Button>
                     </Link>
                   </div>
                 </div>
@@ -131,8 +130,8 @@ const Courses = () => {
                     <span className="font-semibold text-primary">{c.fee}</span>
                   ) : null}
                 </div>
-                <Link to={isLoggedIn ? `/course/${c.id}` : "/login"}>
-                  <Button className="w-full" size="sm">{isLoggedIn ? "View Course" : "Login to Enroll"}</Button>
+                <Link to={enquiryLink(c.title)}>
+                  <Button className="w-full" size="sm">Enquire Now</Button>
                 </Link>
               </div>
             </div>

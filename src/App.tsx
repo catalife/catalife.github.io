@@ -2,18 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 import Landing from "./pages/Landing";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
-import CourseDetail from "./pages/CourseDetail";
-import Quiz from "./pages/Quiz";
-import Forum from "./pages/Forum";
-import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -26,18 +20,16 @@ const App = () => (
       <Sonner />
       <HashRouter>
         <AuthProvider>
+          <ScrollToTop />
           <Navbar />
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/course/:id" element={<CourseDetail />} />
-            <Route path="/quiz/:id" element={<Quiz />} />
-            <Route path="/forum" element={<Forum />} />
-            <Route path="/admin" element={<Admin />} />
             <Route path="/contact" element={<Contact />} />
+            {/* Student login is disabled; old links go to the enquiry form. */}
+            {["/login", "/signup", "/dashboard", "/course/:id", "/quiz/:id", "/forum", "/admin"].map((path) => (
+              <Route key={path} path={path} element={<Navigate to="/contact" replace />} />
+            ))}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>

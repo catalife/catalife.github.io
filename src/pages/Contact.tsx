@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,7 +24,10 @@ const contactInfo = [
 
 const Contact = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [searchParams] = useSearchParams();
+  const course = searchParams.get("course")?.slice(0, 150) ?? "";
+  const initialSubject = course ? `Enquiry: ${course}` : "";
+  const [form, setForm] = useState({ name: "", email: "", subject: initialSubject, message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -49,7 +53,7 @@ const Contact = () => {
     window.open(`https://wa.me/918483844076?text=${encodedMsg}`, "_blank");
 
     toast({ title: "Message sent!", description: "We'll get back to you soon via WhatsApp." });
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setForm({ name: "", email: "", subject: initialSubject, message: "" });
   };
 
   return (

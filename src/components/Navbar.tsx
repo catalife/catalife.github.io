@@ -1,22 +1,15 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Stethoscope, Menu, X, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Stethoscope, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { useAuth } from "@/context/AuthContext";
+
+const navLinks = [
+  { to: "/courses", label: "Courses" },
+  { to: "/contact", label: "Contact" },
+];
 
 const Navbar = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { user, isAdmin, isLoggedIn, logout } = useAuth();
-  const isAuth = location.pathname === "/login" || location.pathname === "/signup";
-
-  if (isAuth) return null;
-
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-  };
 
   return (
     <nav className="sticky top-0 z-50 border-b bg-card/80 backdrop-blur-md">
@@ -29,50 +22,25 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
-          {isLoggedIn && (
-            <Link to="/dashboard" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              Dashboard
+          {navLinks.map((l) => (
+            <Link key={l.to} to={l.to} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+              {l.label}
             </Link>
-          )}
-          <Link to="/courses" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-            Courses
-          </Link>
-          <Link to="/contact" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-            Contact
-          </Link>
-          {isLoggedIn && (
-            <Link to="/forum" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              Forum
-            </Link>
-          )}
-          {isAdmin && (
-            <Link to="/admin" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              Admin
-            </Link>
-          )}
+          ))}
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          {isLoggedIn ? (
-            <>
-              <span className="text-sm text-muted-foreground">Hi, {user?.name}</span>
-              <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-1">
-                <LogOut className="h-4 w-4" /> Logout
-              </Button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">
-                <Button variant="ghost" size="sm">Log in</Button>
-              </Link>
-              <Link to="/signup">
-                <Button size="sm">Get Started</Button>
-              </Link>
-            </>
-          )}
+          <Link to="/contact">
+            <Button size="sm">Enquire Now</Button>
+          </Link>
         </div>
 
-        <button className="md:hidden" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className="md:hidden"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+        >
           {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -80,28 +48,15 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="border-t bg-card p-4 md:hidden">
           <div className="flex flex-col gap-3">
-            {isLoggedIn && (
-              <Link to="/dashboard" className="text-sm font-medium" onClick={() => setMobileOpen(false)}>Dashboard</Link>
-            )}
-            <Link to="/courses" className="text-sm font-medium" onClick={() => setMobileOpen(false)}>Courses</Link>
-            <Link to="/contact" className="text-sm font-medium" onClick={() => setMobileOpen(false)}>Contact</Link>
-            {isLoggedIn && (
-              <Link to="/forum" className="text-sm font-medium" onClick={() => setMobileOpen(false)}>Forum</Link>
-            )}
-            {isAdmin && (
-              <Link to="/admin" className="text-sm font-medium" onClick={() => setMobileOpen(false)}>Admin</Link>
-            )}
-            <div className="flex gap-2 pt-2">
-              {isLoggedIn ? (
-                <Button variant="ghost" size="sm" onClick={() => { handleLogout(); setMobileOpen(false); }} className="gap-1">
-                  <LogOut className="h-4 w-4" /> Logout
-                </Button>
-              ) : (
-                <>
-                  <Link to="/login"><Button variant="ghost" size="sm">Log in</Button></Link>
-                  <Link to="/signup"><Button size="sm">Get Started</Button></Link>
-                </>
-              )}
+            {navLinks.map((l) => (
+              <Link key={l.to} to={l.to} className="text-sm font-medium" onClick={() => setMobileOpen(false)}>
+                {l.label}
+              </Link>
+            ))}
+            <div className="pt-2">
+              <Link to="/contact" onClick={() => setMobileOpen(false)}>
+                <Button size="sm">Enquire Now</Button>
+              </Link>
             </div>
           </div>
         </div>
