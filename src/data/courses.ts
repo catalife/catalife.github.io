@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import clinicalResearchAdvanceThumb from "@/assets/course-thumbnails/clinical-research-advance.jpg";
-import clinicalResearchPgThumb from "@/assets/course-thumbnails/clinical-research-pg.jpg";
 import medicalWritingThumb from "@/assets/course-thumbnails/medical-writing.jpg";
 import dataManagementThumb from "@/assets/course-thumbnails/data-management.jpg";
 import pharmacovigilanceThumb from "@/assets/course-thumbnails/pharmacovigilance.jpg";
@@ -29,7 +28,6 @@ export type Course = {
 // The homepage course count is taken from this list, so adding a course here updates it.
 export const courses: Course[] = [
   { title: "Advance Diploma in Clinical Research", desc: "Trial processes, protocols and regulations.", duration: "3 months", category: "Clinical Research", thumbnail: clinicalResearchAdvanceThumb },
-  { title: "PG Diploma in Clinical Research", desc: "Advanced trial management and biostatistics.", duration: "12 months", category: "Clinical Research", thumbnail: clinicalResearchPgThumb },
   { title: "Advance Diploma in Pharmacovigilance", desc: "Drug safety, adverse event reporting and risk management.", duration: "3 months", category: "Pharmacovigilance", thumbnail: pharmacovigilanceThumb },
   { title: "Advance Diploma in Clinical Data Management", desc: "Collect, validate and manage clinical trial data.", duration: "3 months", category: "Data Management", thumbnail: dataManagementThumb },
   { title: "Advance Diploma in Medical Writing", desc: "Regulatory writing, study reports and scientific documents.", duration: "3 months", category: "Medical Writing", thumbnail: medicalWritingThumb },
