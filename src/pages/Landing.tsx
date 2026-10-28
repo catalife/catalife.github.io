@@ -2,38 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Calendar, Quote } from "lucide-react";
+import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Quote } from "lucide-react";
 import { motion } from "framer-motion";
 import HeroCarousel from "@/components/HeroCarousel";
 import RotatingText from "@/components/RotatingText";
 import { testimonials } from "@/data/testimonials";
 import { courses } from "@/data/courses";
-import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
-import cdmInternshipThumb from "@/assets/course-thumbnails/cdm-internship.png";
-import crDocumentsInternshipThumb from "@/assets/course-thumbnails/cr-documents-internship.png";
-
-const featuredPrograms = [
-  {
-    title: "Master Python – Basic & Advance",
-    badge: "Early Bird till 5 July 2026",
-    image: pythonProgrammingThumb,
-    course: "Master Python – Basic & Advance",
-  },
-  {
-    title: "Basic Internship – Clinical Data Management",
-    badge: "Starting 3 August 2026",
-    fee: "₹999 only",
-    image: cdmInternshipThumb,
-    course: "Basic Internship in Clinical Data Management",
-  },
-  {
-    title: "Integrated Internship – CR Documents",
-    badge: "Starting 3 August 2026",
-    fee: "₹1,999 only",
-    image: crDocumentsInternshipThumb,
-    course: "Integrated Internship – Clinical Research Documents",
-  },
-];
 
 const heroFacts = [
   { value: ["TCS", "IQVIA", "Ascentrik"], label: "where our alumni work" },
@@ -48,8 +22,6 @@ const features = [
   { icon: Users, title: "Placement support", desc: "Career guidance until you're hired." },
 ];
 
-
-const enquiryLink = (course: string) => `/contact?course=${encodeURIComponent(course)}`;
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
   <h2 className="mb-10 text-center font-display text-3xl font-bold md:text-4xl">{children}</h2>
@@ -118,40 +90,6 @@ const Landing = () => {
                 <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Latest Batches */}
-      <section className="bg-primary/5 py-16 md:py-20">
-        <div className="container">
-          <SectionTitle>Latest Batches</SectionTitle>
-          {/* Swipe sideways on phones, grid on larger screens */}
-          <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
-            {featuredPrograms.map((p) => (
-              <div key={p.title} className="w-[80%] shrink-0 snap-center overflow-hidden rounded-xl border bg-card shadow-card md:w-auto">
-                <Link to={enquiryLink(p.course)} className="block">
-                  <img src={p.image} alt={`${p.title} flyer`} className="w-full bg-muted object-contain" />
-                </Link>
-                <div className="space-y-3 p-5">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/20 px-3 py-1 text-xs font-semibold text-secondary-foreground">
-                    <Calendar className="h-3.5 w-3.5" /> {p.badge}
-                  </span>
-                  <h3 className="font-display text-lg font-semibold leading-snug">{p.title}</h3>
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="font-display text-lg font-bold text-primary">{"fee" in p ? p.fee : ""}</span>
-                    <Link to={enquiryLink(p.course)}>
-                      <Button size="sm">Enquire</Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link to="/courses" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline">
-              See all courses <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
