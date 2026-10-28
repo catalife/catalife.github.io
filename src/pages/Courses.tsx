@@ -14,7 +14,7 @@ const Courses = () => {
   const shown = category === "All" ? courses : courses.filter((c) => c.category === category);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-secondary/20 via-primary/10 to-accent/15 py-10">
+    <div className="min-h-screen bg-gradient-to-b from-primary/10 via-background to-background py-10">
       <div className="container">
         <h1 className="mb-6 font-display text-3xl font-bold md:text-4xl">Courses</h1>
 
