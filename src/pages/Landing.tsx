@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Calendar, Quote } from "lucide-react";
 import { motion } from "framer-motion";
 import HeroCarousel from "@/components/HeroCarousel";
+import RotatingText from "@/components/RotatingText";
 import { testimonials } from "@/data/testimonials";
 import { courses } from "@/data/courses";
 import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
@@ -35,7 +36,7 @@ const featuredPrograms = [
 ];
 
 const heroFacts = [
-  { value: "TCS", label: "where our alumni work" },
+  { value: ["TCS", "IQVIA", "Ascentrik"], label: "where our alumni work" },
   { value: String(courses.length), label: "courses & internships" },
   { value: "4 weeks", label: "online internships" },
 ];
@@ -84,10 +85,12 @@ const Landing = () => {
                 </Button>
               </Link>
             </div>
-            <div className="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-primary-foreground/15 pt-6">
+            <div className="mt-10 grid max-w-lg grid-cols-[1.25fr_1fr_1fr] gap-4 border-t border-primary-foreground/15 pt-6 sm:grid-cols-3 sm:gap-6">
               {heroFacts.map((f) => (
                 <div key={f.label}>
-                  <p className="font-display text-2xl font-bold text-secondary">{f.value}</p>
+                  <p className="whitespace-nowrap font-display text-lg font-bold text-secondary sm:text-2xl">
+                    {Array.isArray(f.value) ? <RotatingText items={f.value} /> : f.value}
+                  </p>
                   <p className="mt-1 text-xs text-primary-foreground/60">{f.label}</p>
                 </div>
               ))}
