@@ -43,7 +43,7 @@ const heroFacts = [
 const features = [
   { icon: GraduationCap, title: "Expert-led", desc: "Learn from industry professionals." },
   { icon: FlaskConical, title: "Hands-on", desc: "Practical, case-based training." },
-  { icon: Award, title: "Certified", desc: "Diplomas, certificates & internships." },
+  { icon: Award, title: "Certification", desc: "Earn a certificate when you complete your course." },
   { icon: Users, title: "Placement support", desc: "Career guidance until you're hired." },
 ];
 
@@ -100,10 +100,10 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Our Commitment */}
+      {/* Our Approach */}
       <section className="py-16 md:py-20">
         <div className="container">
-          <SectionTitle>Our Commitment</SectionTitle>
+          <SectionTitle>Our Approach</SectionTitle>
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
             {features.map((f, i) => (
               <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
