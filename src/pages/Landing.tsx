@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Calendar, Quote } from "lucide-react";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-illustration.jpg";
+import HeroCarousel from "@/components/HeroCarousel";
 import { testimonials } from "@/data/testimonials";
 import { courses } from "@/data/courses";
 import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
@@ -95,7 +95,7 @@ const Landing = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hidden md:block">
-            <img src={heroImage} alt="Catalife Clinical Research Training" className="aspect-[4/3] max-h-[420px] w-full rounded-2xl object-cover shadow-hero" />
+            <HeroCarousel />
           </motion.div>
         </div>
       </section>
