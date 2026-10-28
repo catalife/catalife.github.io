@@ -16,7 +16,7 @@ const contactSchema = z.object({
 });
 
 const contactInfo = [
-  { icon: MapPin, label: "Address", value: "CataLife Training Organization, Pune, Maharashtra, India" },
+  { icon: MapPin, label: "Address", value: "Catalife Training Organization, Pune, Maharashtra, India" },
   { icon: Phone, label: "Phone", value: "+91 8483844076", href: "tel:+918483844076" },
   { icon: Mail, label: "Email", value: "catalifetrainingorganisation@gmail.com", href: "mailto:catalifetrainingorganisation@gmail.com" },
   { icon: Clock, label: "Hours", value: "Mon – Sat, 9:00 AM – 6:00 PM" },

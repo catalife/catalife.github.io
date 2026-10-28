@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GraduationCap, Users, Award, FlaskConical, ArrowRight, Calendar, Quote } from "lucide-react";
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-illustration.jpg";
+import { testimonials } from "@/data/testimonials";
 import pythonProgrammingThumb from "@/assets/course-thumbnails/python-programming.png";
 import cdmInternshipThumb from "@/assets/course-thumbnails/cdm-internship.png";
 import crDocumentsInternshipThumb from "@/assets/course-thumbnails/cr-documents-internship.png";
@@ -40,48 +41,6 @@ const features = [
   { icon: Users, title: "Placement support", desc: "Career guidance until you're hired." },
 ];
 
-const testimonials = [
-  {
-    name: "Shweta Jagdale",
-    detail: "Drug Safety Specialist at TCS",
-    course: "Pharmacovigilance & Clinical Research",
-    image: "/testimonials/shweta-jagdale.jpg",
-    highlight: "I joined TCS as a Drug Safety Associate, and within 4 months my role changed to Drug Safety Specialist.",
-    quote: "I feel like these courses in my life are like cherry on the cake. The faculties were always helpful and give their 100% for their students so they get placed in reputed companies. This course helped me to get placed in a reputed company like TCS. I joined as Drug Safety Associate because of hands-on knowledge of PV and clinical research; within 4 months my role changed to Drug Safety Specialist. The knowledge that I acquired helped me to progress in a short span of time. It is undoubtedly one of the best career options for me, as I am always curious to identify new information about the risks and dangers associated with medications.",
-  },
-  {
-    name: "Neha Wani",
-    detail: "Working at TCS",
-    course: "Clinical Research Certificate",
-    image: "/testimonials/neha-wani.jpg",
-    highlight: "This course has been invaluable, both during interviews and in my job at TCS.",
-    quote: "Completing the clinical research certificate course was an eye-opening experience. The comprehensive curriculum prepared me well for the field. I feel confident and equipped to excel in my career thanks to this course. This clinical research certificate course has been immensely helpful in my job. This course has been invaluable, both during interviews and in my job at TCS. It provided me with the necessary knowledge and skills. I am grateful for the practical insights and expertise gained, which have significantly contributed to my success. I highly recommend it to anyone looking to advance their career in clinical research.",
-  },
-  {
-    name: "Nausheen Bare",
-    detail: "Pharmacy graduate",
-    course: "Pharmacovigilance & Clinical Research",
-    image: "/testimonials/nausheen-bare.jpg",
-    highlight: "The training I received was not only professional & complete, it was also technically superior.",
-    quote: "I feel happy & satisfied about my decision to join the Pharmacovigilance (PV) and Clinical Research training program. The training I received was not only professional & complete, it was also technically superior. The teaching pattern was interactive, so we got good exposure to practicals. Our trainer Dr. Trupti Deshpande Ma'am is excellent and she trained us thoroughly in all aspects. Joining PV after Pharmacy is an added advantage for me. I found this academy a perfect environment, conducive to effective learning & academic success. All in all, it was a great experience.",
-  },
-  {
-    name: "Gayatri More",
-    detail: "B.Sc. Chemistry",
-    course: "Pharmacovigilance",
-    image: "/testimonials/gayatri-more.jpg",
-    highlight: "Coming from a non-pharma background, the way all the mentors taught, especially Trupti ma'am, motivated me a lot.",
-    quote: "Choosing the career vigilance program from CataLife Training Organization proved to be a good decision for me. As a non-pharma background I had lots of issues regarding this new path, but the way of teaching of all mentors, specially Trupti ma'am, motivated me a lot. The overall curriculum has been designed so well and is easy to understand. With knowledgeable guest lectures, they made my path so easy, and I learned a lot of basic things. Highly recommend to everyone. Thank you CTO.",
-  },
-  {
-    name: "Apsara Bagwan",
-    detail: "D. Pharm",
-    course: "Advance Diploma in Clinical Research",
-    image: "/testimonials/apsara-bagwan.jpg",
-    highlight: "This course has helped me a lot in strengthening my career.",
-    quote: "The Advance Diploma course in Clinical Research proved to be a good decision for me. This course has helped me a lot in strengthening my career. I got a lot of knowledge from this course. Ma'am's way of teaching and her knowledge is the best. The curriculum has been designed in such a way that it is easy to understand and beneficial to us.",
-  },
-];
 
 const enquiryLink = (course: string) => `/contact?course=${encodeURIComponent(course)}`;
 
@@ -122,15 +81,15 @@ const Landing = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hidden md:block">
-            <img src={heroImage} alt="CataLife Clinical Research Training" className="rounded-2xl shadow-hero" />
+            <img src={heroImage} alt="Catalife Clinical Research Training" className="rounded-2xl shadow-hero" />
           </motion.div>
         </div>
       </section>
 
-      {/* Why CataLife */}
+      {/* Why Catalife */}
       <section className="py-16 md:py-20">
         <div className="container">
-          <SectionTitle>Why CataLife</SectionTitle>
+          <SectionTitle>Why Catalife</SectionTitle>
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
             {features.map((f, i) => (
               <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
@@ -229,6 +188,11 @@ const Landing = () => {
               </TabsContent>
             ))}
           </Tabs>
+          <div className="mt-8 text-center">
+            <Link to="/testimonials" className="inline-flex items-center gap-1 font-semibold text-primary hover:underline">
+              Read all student stories <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -248,10 +212,11 @@ const Landing = () => {
       {/* Footer */}
       <footer className="border-t py-8">
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-sm text-muted-foreground">© 2026 CataLife Training Organization</p>
+          <p className="text-sm text-muted-foreground">© 2026 Catalife Training Organization</p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="https://www.instagram.com/_catalife_organization_/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">Instagram</a>
             <Link to="/courses" className="hover:text-foreground">Courses</Link>
+            <Link to="/testimonials" className="hover:text-foreground">Testimonials</Link>
             <Link to="/contact" className="hover:text-foreground">Contact</Link>
           </div>
         </div>

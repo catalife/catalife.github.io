@@ -9,6 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Landing from "./pages/Landing";
 import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
+import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
             {/* Student login is disabled; old links go to the enquiry form. */}
             {["/login", "/signup", "/dashboard", "/course/:id", "/quiz/:id", "/forum", "/admin"].map((path) => (
