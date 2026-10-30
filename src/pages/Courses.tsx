@@ -42,7 +42,7 @@ const Courses = () => {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {shown.map((c) => (
             <div key={c.title} className="flex flex-col overflow-hidden rounded-xl border bg-card shadow-card transition-shadow hover:shadow-card-hover">
-              <div className="relative h-40 overflow-hidden bg-muted">
+              <Link to={`/courses/${slugify(c.title)}`} className="relative block h-40 overflow-hidden bg-muted">
                 {c.thumbnail ? (
                   <>
                     <img src={c.thumbnail} alt="" className="h-full w-full object-cover object-top" />
@@ -56,9 +56,11 @@ const Courses = () => {
                 <span className="absolute bottom-3 left-3 rounded-full bg-secondary/90 px-3 py-1 text-xs font-semibold text-secondary-foreground">
                   {c.category}
                 </span>
-              </div>
+              </Link>
               <div className="flex flex-1 flex-col p-5">
-                <h2 className="font-display text-lg font-semibold leading-snug">{c.title}</h2>
+                <Link to={`/courses/${slugify(c.title)}`} className="hover:text-primary">
+                  <h2 className="font-display text-lg font-semibold leading-snug">{c.title}</h2>
+                </Link>
                 <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
                 <div className="mt-auto flex items-center justify-between gap-3 pt-4">
                   <span className="flex items-center gap-1 text-sm text-muted-foreground">

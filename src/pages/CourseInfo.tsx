@@ -1,9 +1,15 @@
 import { Link, Navigate, useParams } from "react-router-dom";
-import { ArrowLeft, CheckCircle2, Clock, Download, Monitor, Sparkles, Users } from "lucide-react";
+import { ArrowLeft, Briefcase, CheckCircle2, Clock, Download, Monitor, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { courses, slugify } from "@/data/courses";
 
 const WHATSAPP = "918483844076";
+
+const enrolSteps = [
+  "Send an enquiry or message us on WhatsApp.",
+  "We share the next batch date, schedule and fees.",
+  "Confirm your seat and start learning online.",
+];
 
 const CourseInfo = () => {
   const { slug } = useParams();
@@ -47,6 +53,22 @@ const CourseInfo = () => {
             </section>
           )}
 
+          {d?.careers && (
+            <section>
+              <h2 className="mb-4 font-display text-xl font-bold">Career opportunities</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {d.careers.map((c) => (
+                  <div key={c} className="flex items-center gap-3 rounded-xl border bg-card p-4 shadow-card">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary/15">
+                      <Briefcase className="h-4 w-4 text-secondary-foreground" />
+                    </div>
+                    <span className="text-sm font-medium">{c}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {d?.highlights && (
             <section>
               <h2 className="mb-4 font-display text-xl font-bold">Program highlights</h2>
@@ -69,6 +91,18 @@ const CourseInfo = () => {
               </div>
             </section>
           )}
+
+          <section>
+            <h2 className="mb-4 font-display text-xl font-bold">How to enrol</h2>
+            <ol className="grid gap-3 sm:grid-cols-3">
+              {enrolSteps.map((step, i) => (
+                <li key={step} className="rounded-xl border bg-card p-4 shadow-card">
+                  <span className="mb-2 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">{i + 1}</span>
+                  <p className="text-sm">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
         </div>
 
         {/* Sticky enquiry card */}
