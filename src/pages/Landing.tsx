@@ -8,15 +8,25 @@ import HeroCarousel from "@/components/HeroCarousel";
 import RotatingText from "@/components/RotatingText";
 import { testimonials } from "@/data/testimonials";
 import { courses } from "@/data/courses";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const heroFacts = [
   { value: ["TCS", "IQVIA", "Ascentrik"], label: "where our alumni work" },
+  { value: "100+", label: "students trained" },
   { value: String(courses.length), label: "courses & internships" },
-  { value: "4 weeks", label: "online internships" },
+];
+
+const faqs = [
+  { q: "Are the courses online?", a: "Yes. All our courses are 100% online, with live interactive sessions." },
+  { q: "Who can join?", a: "Pharmacy, Life Sciences, Nursing, Biotechnology, B.Sc/M.Sc students and fresh graduates aiming for a career in clinical research." },
+  { q: "How long are the courses?", a: "Most core courses run for 1 month. Medical Coding is 3 months, SAS and R Programming are 4 months, and internships are 4 weeks." },
+  { q: "Will I get a certificate?", a: "Yes. You receive a certificate when you complete your course." },
+  { q: "Do you help with placements?", a: "Yes. We provide career guidance, resume building, mock interviews and placement assistance. Our alumni work at companies like TCS, IQVIA and Ascentrik." },
+  { q: "What are the fees and next batch dates?", a: "Fees and batch dates vary by course. Send us an enquiry or message us on WhatsApp and we will share the latest details." },
 ];
 
 const features = [
-  { icon: GraduationCap, title: "Expert-led", desc: "Learn from industry professionals." },
+  { icon: GraduationCap, title: "Experienced faculty", desc: "Learn from experienced industry professionals." },
   { icon: FlaskConical, title: "Hands-on", desc: "Practical, case-based training." },
   { icon: Award, title: "Certification", desc: "Earn a certificate when you complete your course." },
   { icon: Users, title: "Placement support", desc: "Career guidance until you're hired." },
@@ -151,6 +161,25 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="pb-16 md:pb-20">
+        <div className="container max-w-3xl">
+          <SectionTitle>Frequently Asked Questions</SectionTitle>
+          <Accordion type="single" collapsible className="rounded-2xl border bg-card px-6 shadow-card">
+            {faqs.map((f, i) => (
+              <AccordionItem key={f.q} value={String(i)} className={i === faqs.length - 1 ? "border-b-0" : ""}>
+                <AccordionTrigger className="text-left font-display text-base font-semibold hover:no-underline">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Want the full course list?{" "}
+            <a href="/catalife-brochure.pdf" download className="font-semibold text-primary hover:underline">Download our brochure (PDF)</a>
+          </p>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="gradient-hero py-16">
         <div className="container text-center">
@@ -173,6 +202,7 @@ const Landing = () => {
             <Link to="/courses" className="hover:text-foreground">Courses</Link>
             <Link to="/testimonials" className="hover:text-foreground">Testimonials</Link>
             <Link to="/contact" className="hover:text-foreground">Contact</Link>
+            <a href="/catalife-brochure.pdf" download className="hover:text-foreground">Brochure</a>
           </div>
         </div>
       </footer>

@@ -9,6 +9,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import Landing from "./pages/Landing";
 import Courses from "./pages/Courses";
 import Contact from "./pages/Contact";
+import CourseInfo from "./pages/CourseInfo";
+import WhatsAppButton from "./components/WhatsAppButton";
 import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +28,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/courses" element={<Courses />} />
+            <Route path="/courses/:slug" element={<CourseInfo />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
             {/* Student login is disabled; old links go to the enquiry form. */}
@@ -34,6 +37,7 @@ const App = () => (
             ))}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <WhatsAppButton />
         </AuthProvider>
       </HashRouter>
     </TooltipProvider>

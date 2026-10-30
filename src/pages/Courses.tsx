@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Clock } from "lucide-react";
+import { Clock, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { courses } from "@/data/courses";
+import { courses, slugify } from "@/data/courses";
 
 const categories = ["All", ...Array.from(new Set(courses.map((c) => c.category)))];
 
@@ -16,7 +16,14 @@ const Courses = () => {
   return (
     <div className="min-h-screen bg-background py-10">
       <div className="container">
-        <h1 className="mb-6 font-display text-3xl font-bold md:text-4xl">Courses</h1>
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <h1 className="font-display text-3xl font-bold md:text-4xl">Courses</h1>
+          <a href="/catalife-brochure.pdf" download>
+            <Button variant="outline" className="gap-2">
+              <Download className="h-4 w-4" /> Download brochure
+            </Button>
+          </a>
+        </div>
 
         <Tabs value={category} onValueChange={setCategory} className="mb-8">
           <TabsList className="-mx-4 flex h-auto w-auto justify-start gap-2 overflow-x-auto bg-transparent px-4 pb-1 md:mx-0 md:flex-wrap md:px-0">
@@ -58,9 +65,16 @@ const Courses = () => {
                     <Clock className="h-4 w-4" /> {c.duration}
                     {c.fee && <span className="ml-2 font-semibold text-primary">{c.fee}</span>}
                   </span>
-                  <Link to={enquiryLink(c.title)}>
-                    <Button size="sm">Enquire</Button>
-                  </Link>
+                  <div className="flex shrink-0 gap-2">
+                    {c.details && (
+                      <Link to={`/courses/${slugify(c.title)}`}>
+                        <Button size="sm" variant="outline">Details</Button>
+                      </Link>
+                    )}
+                    <Link to={enquiryLink(c.title)}>
+                      <Button size="sm">Enquire</Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
