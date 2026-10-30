@@ -37,7 +37,7 @@ const Landing = () => {
         <div className="container relative z-10 grid items-center gap-12 md:grid-cols-2">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="mb-4 inline-block rounded-full bg-secondary/20 px-4 py-1.5 text-sm font-medium text-secondary">
-              Clinical Research Training · Pune
+              Clinical Research Training · 100% Online
             </span>
             <h1 className="mb-5 font-hero text-4xl font-bold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
               Launch your career in Clinical Research

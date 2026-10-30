@@ -7,16 +7,15 @@ import { courses } from "@/data/courses";
 // Slide order, strongest photos first and alternating light/dark so each change is noticeable.
 // Courses not listed here (e.g. flyers, which don't crop well) are left out of the carousel.
 const ORDER = [
-  "Advance Diploma in Clinical Research",
+  "Clinical Research",
   "SAS Programming",
-  "Advance Diploma in Clinical Data Management",
+  "Clinical Data Management (CDM)",
   "R Programming",
-  "Public Speaking Certificate Course",
-  "Advance Diploma in Medical Writing",
-  "Certificate Course of Soft Skills",
+  "Medical Writing",
+  "Soft Skills",
   "Regulatory Affairs",
   "Medical Coding",
-  "Advance Diploma in Pharmacovigilance",
+  "Pharmacovigilance",
 ];
 
 const slides = ORDER.map((title) => courses.find((c) => c.title === title)).filter(
